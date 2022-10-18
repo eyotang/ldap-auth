@@ -9,5 +9,5 @@ type LdapAuth struct {
 	EmailSuffix    string `mapstructure:"email-suffix" json:"emailSuffix" yaml:"email-suffix"`          // email后缀: '@xxx.com'
 	EmailKey       string `mapstructure:"email-key" json:"emailKey" yaml:"email-key"`                   // ldap校验email属性: 'mail'
 	UsernameKey    string `mapstructure:"username-key" json:"usernameKey" yaml:"username-key"`          // ldap鉴权用户名: 'sAMAccountName'
-	NikNameKey     string `mapstructure:"nik-name-key" json:"nikNameKey" yaml:"nik-name-key"`           // ldap显示用户名: 'displayName'
+	NickNameKey    string `mapstructure:"nick-name-key" json:"nickNameKey" yaml:"nick-name-key"`        // ldap显示用户名: 'displayName'
 }

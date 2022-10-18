@@ -13,7 +13,7 @@ var ErrEntries = errors.New("auth/ldap: Search user DN does not exist or too man
 type Info struct {
 	Username string
 	Email    string
-	NikName  string
+	NickName string
 }
 
 func (c *LdapClient) Authenticate(userName, password string) (*Info, error) { //nolint:lll
@@ -57,9 +57,9 @@ func (c *LdapClient) Authenticate(userName, password string) (*Info, error) { //
 
 	name := result.Entries[0].GetAttributeValue(c.cfg.UsernameKey)
 	mail := result.Entries[0].GetAttributeValue(c.cfg.EmailKey)
-	nikName := result.Entries[0].GetAttributeValue(c.cfg.NikNameKey)
+	nickName := result.Entries[0].GetAttributeValue(c.cfg.NickNameKey)
 
-	return &Info{Username: name, Email: mail, NikName: nikName}, nil
+	return &Info{Username: name, Email: mail, NickName: nickName}, nil
 }
 
 func (c *LdapClient) GetUserList() (users []*Info, err error) {
@@ -94,7 +94,7 @@ func (c *LdapClient) GetUserList() (users []*Info, err error) {
 	for _, entry := range result.Entries {
 		users = append(users, &Info{
 			Username: entry.GetAttributeValue(c.cfg.UsernameKey),
-			NikName:  entry.GetAttributeValue(c.cfg.NikNameKey),
+			NickName: entry.GetAttributeValue(c.cfg.NickNameKey),
 			Email:    entry.GetAttributeValue(c.cfg.EmailKey),
 		})
 	}

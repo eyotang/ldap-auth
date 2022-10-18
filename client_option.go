@@ -20,7 +20,7 @@ func WithConfProps(serverURL, bindDN, bindPasswd, searchBaseDN, searchStandard, 
 			EmailSuffix:    emailSuffix,
 			EmailKey:       emailKey,
 			UsernameKey:    usernameKey,
-			NikNameKey:     nickNameKey,
+			NickNameKey:    nickNameKey,
 		}
 		return nil
 	}
