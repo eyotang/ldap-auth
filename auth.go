@@ -85,7 +85,7 @@ func (c *LdapClient) GetUserList() (users []*Info, err error) {
 	if result, err = l.Search(&ldap.SearchRequest{
 		BaseDN: c.cfg.SearchBaseDN,
 		Scope:  ldap.ScopeWholeSubtree,
-		Filter: c.cfg.SearchStandard + "*",
+		Filter: fmt.Sprintf(c.cfg.SearchStandard, "*"),
 	}); err != nil {
 		return
 	}
