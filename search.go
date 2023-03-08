@@ -46,6 +46,7 @@ func (c *LdapClient) GetUserList() (users []*Info, err error) {
 	return
 }
 
+// SearchUser 需判断user是否为空
 func (c *LdapClient) SearchUser(name string) (user *Info, err error) {
 	var (
 		l      conn
