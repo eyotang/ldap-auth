@@ -14,6 +14,7 @@ type Info struct {
 	Username string
 	Email    string
 	NickName string
+	DN       string // DistinguishedName
 }
 
 func (c *LdapClient) Authenticate(userName, password string) (*Info, error) { //nolint:lll
@@ -58,6 +59,7 @@ func (c *LdapClient) Authenticate(userName, password string) (*Info, error) { //
 	name := result.Entries[0].GetAttributeValue(c.cfg.UsernameKey)
 	mail := result.Entries[0].GetAttributeValue(c.cfg.EmailKey)
 	nickName := result.Entries[0].GetAttributeValue(c.cfg.NickNameKey)
+	dn := result.Entries[0].GetAttributeValue("distinguishedName")
 
-	return &Info{Username: name, Email: mail, NickName: nickName}, nil
+	return &Info{Username: name, Email: mail, NickName: nickName, DN: dn}, nil
 }
