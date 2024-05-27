@@ -15,7 +15,7 @@ func setup(t *testing.T) (*LdapClient, error) {
 		EmailSuffix:    os.Getenv("EmailSuffix"),
 		EmailKey:       "mail",
 		UsernameKey:    "sAMAccountName",
-		NickNameKey:    "displayName",
+		DisplayNameKey: "displayName",
 	}
 	return NewLdapClient(WithConf(cfg))
 }

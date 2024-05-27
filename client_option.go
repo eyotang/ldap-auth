@@ -9,7 +9,7 @@ func WithConf(conf *LdapAuth) ClientOptionFunc {
 	}
 }
 
-func WithConfProps(serverURL, bindDN, bindPasswd, searchBaseDN, searchStandard, emailSuffix, emailKey, usernameKey, nickNameKey string) ClientOptionFunc {
+func WithConfProps(serverURL, bindDN, bindPasswd, searchBaseDN, searchStandard, emailSuffix, emailKey, usernameKey, displayNameKey string) ClientOptionFunc {
 	return func(client *LdapClient) error {
 		client.cfg = &LdapAuth{
 			ServerURL:      serverURL,
@@ -20,7 +20,7 @@ func WithConfProps(serverURL, bindDN, bindPasswd, searchBaseDN, searchStandard, 
 			EmailSuffix:    emailSuffix,
 			EmailKey:       emailKey,
 			UsernameKey:    usernameKey,
-			NickNameKey:    nickNameKey,
+			DisplayNameKey: displayNameKey,
 		}
 		return nil
 	}

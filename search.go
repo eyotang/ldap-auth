@@ -37,9 +37,9 @@ func (c *LdapClient) GetUserList() (users []*Info, err error) {
 	users = make([]*Info, 0, len(result.Entries))
 	for _, entry := range result.Entries {
 		users = append(users, &Info{
-			Username: entry.GetAttributeValue(c.cfg.UsernameKey),
-			NickName: entry.GetAttributeValue(c.cfg.NickNameKey),
-			Email:    entry.GetAttributeValue(c.cfg.EmailKey),
+			Username:    entry.GetAttributeValue(c.cfg.UsernameKey),
+			DisplayName: entry.GetAttributeValue(c.cfg.DisplayNameKey),
+			Email:       entry.GetAttributeValue(c.cfg.EmailKey),
 		})
 	}
 
@@ -78,9 +78,9 @@ func (c *LdapClient) SearchUser(name string) (user *Info, err error) {
 	if len(result.Entries) > 0 {
 		entry := result.Entries[0]
 		user = &Info{
-			Username: entry.GetAttributeValue(c.cfg.UsernameKey),
-			Email:    entry.GetAttributeValue(c.cfg.EmailKey),
-			NickName: entry.GetAttributeValue(c.cfg.NickNameKey),
+			Username:    entry.GetAttributeValue(c.cfg.UsernameKey),
+			Email:       entry.GetAttributeValue(c.cfg.EmailKey),
+			DisplayName: entry.GetAttributeValue(c.cfg.DisplayNameKey),
 		}
 	}
 
