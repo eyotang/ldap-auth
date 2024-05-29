@@ -40,6 +40,7 @@ func (c *LdapClient) GetUserList() (users []*Info, err error) {
 			Username:    entry.GetAttributeValue(c.cfg.UsernameKey),
 			DisplayName: entry.GetAttributeValue(c.cfg.DisplayNameKey),
 			Email:       entry.GetAttributeValue(c.cfg.EmailKey),
+			DN:          entry.GetAttributeValue("distinguishedName"),
 		})
 	}
 
